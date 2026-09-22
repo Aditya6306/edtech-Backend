@@ -34,7 +34,7 @@ public class Profile {
     @Column(length = 1000)
     private String about;
 
-    private String phoneNumber;
+    
 
     @OneToOne(mappedBy = "profile")
     @JsonBackReference

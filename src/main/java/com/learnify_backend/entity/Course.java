@@ -21,7 +21,7 @@ public class Course {
     private String courseDescription;
     private String whatYouWillLearn;
     private Double price;
-    private String thumbNail;
+    private String thumbnail;
     @ManyToOne
     @JoinColumn(name = "instructor_id", nullable = false)
     private User instructor;
@@ -47,5 +47,7 @@ public class Course {
 
     @ElementCollection
     private List<String> tag;
+
+    private String status;
 
 }

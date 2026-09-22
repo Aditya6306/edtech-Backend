@@ -3,9 +3,12 @@ package com.learnify_backend.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
+import org.hibernate.mapping.ManyToOne;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
-import org.springframework.context.annotation.Profile;
+// import org.springframework.context.annotation.Profile;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
@@ -47,11 +50,11 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private AccountType accountType;
+    //  @Enumerated(EnumType.STRING)
+    // @Column(nullable = false)
+    // private AccountType accountType;
 
-    @Column(nullable = false)
+    // @Column(nullable = false)
     private String image;
 
     private String token;
@@ -59,8 +62,10 @@ public class User {
     
     private LocalDateTime resetPasswordExpires;
 
+    private String phoneNo;
+
     @OneToOne
-    @JoinColumn(name = "profile_id", nullable = false)
+    @JoinColumn(name = "profile_id")
     private Profile profile;
 
     @ManyToMany
@@ -75,4 +80,7 @@ public class User {
     @JoinColumn(name = "user_id")
     private List<CourseProgress> courseProgress;
 
+    @jakarta.persistence.ManyToOne
+    @JoinColumn(name="role_id")
+    private Role role;
 }
